@@ -1,0 +1,114 @@
+<!--Store this code in 'update.html' file inside the 'templates' folder-->
+<html lang="en">
+
+<head>
+	<title>update</title>
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+	<div class="lg:min-w-screen lg:min-h-screen lg:bg-purple-600 md:bg-purple-600 flex lg:items-center p-10 lg:p-10 overflow-hidden relative">
+		<div class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
+		<div class="flex-1 md:min-h-full md:min-w-full md:rounded-2xl md:bg-white md:shadow-xl p-10 lg:p-10 text-gray-800 relative md:flex  text-center md:text-left">
+			<div class="w-full md:w-full">
+	<div class="navbar bg-base-100">
+		<div class="navbar-start">
+			<div class="dropdown">
+				<label tabindex="0" class="btn btn-ghost btn-circle">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h7" />
+					</svg>
+				</label>
+				<ul tabindex="0"
+					class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+					<li><a href="{{url_for('searchpage')}}">Search</a></li>
+					<li><a href="{{url_for('display')}}">Profile</a></li>
+					<li><a href="{{url_for('logout')}}">Logout</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="navbar-center">
+			<img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="TicketCog Logo">
+			<a class="btn btn-ghost normal-case text-2xl">TicketCOG</a>
+			<!-- <a class="btn btn-ghost normal-case text-xl">ticketCOG</a> -->
+		</div>
+		<div class="navbar-end">
+			<div class="flex space-x-2 align-middle ">
+
+			</div>
+		</div>
+	</div>
+	<div class=" mr-7 ml-7  mb-5 text-sm font-medium breadcrumbs">
+		<ul>
+			<li>Home</li>
+			<li><a href="{{url_for('display')}}">Profile page</a></li>
+			<li>Update profile</li>
+		</ul>
+	</div>
+	<div class="bg-white dark:bg-gray-800">
+		<div class="mx-auto">
+			<div class="lg:w-full w-11/12 mx-auto lg:mx-0">
+				<div class="rounded relative mt-2 h-36">
+					<img src="/static/images/pp3.png" alt="" class="w-full h-full object-cover rounded absolute shadow" />
+					<div class="absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded"></div>
+					<div class="w-28 h-28 rounded-full bg-cover bg-center bg-no-repeat absolute bottom-0 -mb-10 ml-12 shadow flex items-center justify-center">
+						<img src="/static/images/profile-icon.png" alt="" class="absolute z-0 h-full w-full object-cover rounded-full shadow top-0 left-0 bottom-0 right-0" />
+						<div class="absolute bg-black opacity-30 top-0 right-0 bottom-0 left-0 rounded-full z-0"></div>
+					</div>
+				</div>
+				<div class="flex space-x-4 mt-3 justify-center space-y-2">
+					<div class="contentbar">
+						<div class="Tailwindcss-div card lg:min-h-full lg:min-w-full  bg-base-100 drop-shadow-2xl p-10 w-full  rounded-2xl bg-white drop-shadow-2xl md:p-10 lg:p-10 text-gray-900 relative md:flex items-center text-center md:text-left md:items-center md:w-full ">
+							<span class="text-3xl font-medium">Update Profile</span>
+
+						<form action="{{ url_for('update') }}" method="post" autocomplete="off">
+							<div class="msg">{{ msg }}</div>
+							<div class="form-control w-full max-w-xs">
+								<label class="label">
+									<span class="label-text font-medium">Username</span>
+								</label>
+								<input type="text" placeholder="username" name="username"
+									class=" w-80 bg-white border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-blue-500 border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									id="username" required>
+							</div>
+		
+							<div class="form-control w-full max-w-xs">
+								<label class="label">
+									<span class="label-text font-medium">Password</span>
+								</label>
+								<input type="password" name="password" placeholder="Enter Your Password"
+									class=" w-80 bg-white border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-blue-500 border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									id="password" required>
+							</div>
+		
+							<div class="form-control w-full max-w-xs">
+								<label class="label">
+									<span class="label-text font-medium">Email</span>
+								</label>
+								<input type="email" name="email" placeholder="Enter Your Email ID"
+									class="w-80 bg-white border border-gray-300 text-gray-900 text-sm rounded-2xl focus:ring-blue-500 border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+									id="email" required>
+							</div>
+		
+
+							<input type="submit" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center"
+								value="Update">
+						</form>
+
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>

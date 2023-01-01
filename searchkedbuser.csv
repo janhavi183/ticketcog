@@ -1,0 +1,16 @@
+resolution_id,subject,description,application_name,Category,resolution_notes
+1,reset password sap,I forgot my sap account password.Want to reset it.,SAP,Login,Click on reset button.A mail will be sent to you for verification.Click on verification.Then set the new password.
+2,visual studio code,visual studio code licence expired,Visual studio code,Crash,Click on settings click on licence renewal.A renewal will be done by the company for your id and sent to you via email.
+3,Accidentally Deleted Important Files,I deleted ppt accidentally which is very imporant,Powerpoint,Storage,Check recycle bin.
+4,Excel not responding,"Excel hangs or freezes when you launch it, or open an Excel workbook",Excel,Crash,"If you are on Windows 11 or Windows 10, choose Start > All apps > Windows System > Run. Type Excel /safe in the Run box, and then click OK."
+5,login issue,Unable to login as it shows incorrect login details,ERP,Login,Check your username and password input. Check if caps is on.
+6,outlook,outlook frozen,Outlook,Crash,Restart your outlook
+7,cant log in to vpn,cant log in to vpn,VPN,Login,check your network settings.Check if you are connected to internet.
+8,unable to access hr_tool page,unable to access hr_tool page,Hr_tool,Login,check your network settings.Check if you are connected to internet.
+9,skype error ,skype crashing,Skype,Crash,Restart skype.Restart your computer.
+10,unable to log in to engineering tool and skype,unable to log in to engineering tool and skype,Skype,Login,Make sure that you're signing in to the correct Skype account. Enter your registered email address on this link to check the correct Skype account that you’re using.
+11,unable to disable add ins on outlook,unable to disable add ins on outlook,Outlook,Configuration,Open the Microsoft Outlook client.Select “File” > “Options“.Choose “Add-ins”.Uncheck the Add-ins you wish to turn off.
+12,engineering tool says not connected and unable to submit reports,engineering tool says not connected and unable to submit reports,Engineering_tool,Access,"Try turning off the Wi-Fi on your device, then re-enabling it."
+13,hr_tool site not loading page correctly,hr_tool site not loading page correctly,Hr_tool,Access,Check your wifi connection.Your antivirus might block access to some sites or even all of them.
+14,Want to reset the password for outlook,hi I want to reset my outlook password.,Outlook,Login,"Go to Microsoft account security and select Password security.Enter your current password, enter your new password, and then select Save."
+15,unable to open payslips ,"Hi,We are facing Pay slip issue on the production server with the some useru2019s.When they click up on the Salary Statement Link they are getting pay slip I View but there payslip is not getting display.Its not showing any error or any dump u2026its not showing any thing just black..",SAP,Finance,Try installing the latest version as previous version had some problems with pdf version.

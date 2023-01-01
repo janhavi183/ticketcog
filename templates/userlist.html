@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+  <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserList</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+  <body>
+      <div class="navbar bg-white border-b border-gray-200 fixed z-30 w-full">
+        <div class="navbar-start">
+           <button id="toggleSidebarMobile" aria-expanded="true" aria-controls="sidebar" class="lg:hidden mr-2 text-gray-600 hover:text-gray-900 cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 rounded">
+              <svg id="toggleSidebarMobileHamburger" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              </svg>
+              <svg id="toggleSidebarMobileClose" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+           </button>
+         <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="TicketCog Logo">
+          <a class="btn btn-ghost normal-case text-xl">TicketCOG</a>
+        </div>
+        <div class="navbar-end">
+          <div class="flex space-x-2 align-middle hidden lg:block ">
+           <div class="mt-1 relative lg:w-64">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                 <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                 </svg>
+              </div>
+              <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
+           </div>
+            <!-- <input
+              class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Query"
+              title="Type in a name or a country"> -->
+          </div>
+          <div class="dropdown dropdown-end">
+            <label tabindex="0" class="ml-3 btn btn-ghost btn-circle">
+              <div class="avatar">
+                <div class=" w-8 rounded-full">
+                  <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+                </div>
+              </div>
+            </label>
+            <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+              <li><a href="{{url_for('display')}}">Profile</a></li>
+              <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-center">
+           <button id="toggleSidebarMobileSearch" type="button" class="lg:hidden text-gray-500 hover:text-gray-900 hover:bg-gray-100 p-2 rounded-lg">
+              <span class="sr-only">Search</span>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+              </svg>
+           </button>
+        </div> 
+      </div>
+      
+  <div>  
+   </div>
+    <div class="flex overflow-hidden bg-white pt-16">
+       <aside id="sidebar" class="fixed hidden z-20 h-full top-0 left-0 pt-16 flex lg:flex flex-shrink-0 flex-col w-64 transition-width duration-75" aria-label="Sidebar">
+          <div class="relative flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white pt-0">
+             <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                <div class="flex-1 px-3 bg-white divide-y space-y-1">
+                   <ul class="space-y-2 pb-2">
+                      <li>
+                         <form action="#" method="GET" class="lg:hidden">
+                            <label for="mobile-search" class="sr-only">Search</label>
+                            <div class="relative">
+                               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                  <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                     <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                                  </svg>
+                               </div>
+                               <input type="text" name="email" id="mobile-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
+                            </div>
+                         </form>
+                      </li>
+                      <li>
+                         <a href="{{url_for('admindashboard')}}" class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
+                            <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg>
+                            <span class="ml-3">Dashboard</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="{{url_for('bar')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                          <!-- <i class="fas fa-chart-line"></i> -->
+                          <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                             <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                             <path d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z"/></svg>
+                            <!-- <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
+                               <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
+                            </svg> -->
+                            <span class="ml-3 flex-1 whitespace-nowrap">Tickets Prediction</span>
+                            <!-- <span class="bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full">Pro</span> -->
+                         </a>
+                      </li>
+                      <li>
+                        <a href="{{url_for('priorgraph')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                         <!-- <i class="fas fa-chart-line"></i> -->
+                         <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!-- Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M32 32c17.7 0 32 14.3 32 32V400c0 8.8 7.2 16 16 16H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H80c-44.2 0-80-35.8-80-80V64C0 46.3 14.3 32 32 32zM160 224c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32s-32-14.3-32-32V256c0-17.7 14.3-32 32-32zm128-64V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V160c0-17.7 14.3-32 32-32s32 14.3 32 32zm64 32c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32s-32-14.3-32-32V224c0-17.7 14.3-32 32-32zM480 96V320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">Priority Prediction</span>
+                           <!-- <span class="bg-gray-200 text-gray-800 ml-3 text-sm font-medium inline-flex items-center justify-center px-2 rounded-full">Pro</span> -->
+                        </a>
+                     </li>
+                      <li>
+                         <a href="{{url_for('userlist')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                            <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="ml-3 flex-1 whitespace-nowrap">Users</span>
+                         </a>
+                      </li>
+                      <li>
+                        <a href="{{url_for('createticket')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path>
+                           </svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">Create Ticket</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url_for('register')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path>
+                           </svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">Register Users</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url_for('alltickets')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 0v64h64V96H64zm384 0H192v64H448V96zM64 224v64h64V224H64zm384 0H192v64H448V224zM64 352v64h64V352H64zm384 0H192v64H448V352z"/></svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">All tickets</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url_for('logout')}}" class="text-base text-gray-900 font-normal rounded-lg hover:bg-gray-100 flex items-center p-2 group ">
+                           <svg  class="w-6 h-6 text-gray-500 flex-shrink-0 group-hover:text-gray-900 transition duration-75" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                              <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/>
+                           </svg>
+                           <span class="ml-3 flex-1 whitespace-nowrap">Logout</span>
+                        </a>
+                      </li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+       </aside>
+       <div class="bg-gray-900 opacity-50 hidden fixed inset-0 z-10" id="sidebarBackdrop"></div>
+          <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-64 lg:ml-64">
+            <div class="mt-5 w-30 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-1">
+               <span class="flex justify-center normal-case text-xl font-semibold">Users</span></br>
+            <!--  <div class="bg-white shadow rounded-lg p-2 sm:p-2 xl:p-2 "> -->
+                  <div class="flex items-left">
+                     <div class="mr-5 ml-5">
+                        <div style="overflow-x:none">
+                          <div class="overflow-x-none">
+      <table id="myTable" class="w-full table-fixed rounded-lg table-responsive"> 
+        <thead class="rounded-lg bg-slate-300 p-2 rounded-md"> 
+        <tr  data-widget="expandable-table" aria-expanded="false" class=""> 
+            <th class="rounded-l-md p-2" onclick="sortTable(0)">User_id</th> 
+            <th class="text-center p-3 m-2" onclick="sortTable(1)">Username</th> 
+            <th class="text-center p-3 m-2" onclick="sortTable(2)">Email</th> 
+            <th class="text-center p-3 m-2" onclick="sortTable(3)">Role_id</th> 
+            <th class="p-3 m-2 rounded-r-md">Action</th>
+
+        </tr> 
+        </thead> 
+        <tbody> 
+            {% for row in value %}
+            <!-- {{row}}   -->
+                <tr class="expandable-body divide-y divide-gray-200"> 
+                    <td class="p-3 text-center font-medium text-base ">{{row["user_id"]}}</td> 
+                    <td class="p-3 text-center font-medium text-base ">{{row["username"]}}</td> 
+                    <td class="p-3 text-center font-medium text-base ">{{row["email"]}}</td>
+                    <td class="p-3 text-center font-medium text-base ">{{row["role_id"]}}</td>
+                    <td class="p-3 text-center font-medium text-base "> <a href="{{url_for('ChangeRole')}}?user_id={{row['user_id']}}" class="btn btn-primary">Change role</a></td> 
+
+                </tr> 
+            {% endfor %} 
+        </tbody> 
+    </table> 
+        </div>
+        </div>
+       </div>
+    </div>
+            </div>
+          </div>
+    <script>
+      function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("myTable");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+          // Start by saying: no switching is done:
+          switching = false;
+          rows = table.rows;
+          /* Loop through all table rows (except the
+          first, which contains table headers): */
+          for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /* Check if the two rows should switch place,
+            based on the direction, asc or desc: */
+            
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            } else if (dir == "desc") {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            }
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                shouldSwitch = true;
+                  break;
+            }
+
+          }
+          if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // Each time a switch is done, increase this count by 1:
+            switchcount ++;
+          } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+          }
+         
+        }
+      }
+      const myFunction = () => {
+  const trs = document.querySelectorAll('#myTable tr:not(.header)')
+  const filter = document.querySelector('#myInput').value
+  const regex = new RegExp(filter, 'i')
+  const isFoundInTds = td => regex.test(td.innerHTML)
+  const isFound = childrenArr => childrenArr.some(isFoundInTds)
+  const setTrStyleDisplay = ({ style, children }) => {
+    style.display = isFound([
+      ...children // <-- All columns
+    ]) ? '' : 'none' 
+  }
+  
+  trs.forEach(setTrStyleDisplay)
+}
+
+     
+      </script>
+
+		
+   </div>
+  </body>
+</html>

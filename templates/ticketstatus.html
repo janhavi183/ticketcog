@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 font-sans mb-5">
+  <div class="navbar bg-base-100">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+            </label>
+            <ul tabindex="0"
+                class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+                <li><a href="{{url_for('searchpage')}}">Search</a></li>
+                <li><a href="{{url_for('createticket')}}">Create Ticket</a></li>
+                <li><a href="{{url_for('ticketstatus')}}">Ticket Status</a></li>
+                <li><a href="{{url_for('display')}}">Profile</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="navbar-center">
+      <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="TicketCog Logo">
+			<a class="btn btn-ghost normal-case text-2xl">TicketCOG</a>
+        <!-- <a class="btn btn-ghost normal-case text-xl">ticketCOG</a> -->
+    </div>
+    <div class="navbar-end">
+        <div class="flex space-x-2 align-middle ">
+
+        </div>
+        <div class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle">
+                <div class="avatar">
+                    <div class="ml-3 w-8 rounded-full">
+                        <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+                    </div>
+                </div>
+            </label>
+            <ul tabindex="0"
+                class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+                <li><a href="{{url_for('display')}}">Profile</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="spacing mr-3 ml-3 mt-5 mb-5">
+    <div class="info bg-violet-700 p-5 rounded-md">
+        <h2 class="text-xl text-white font-semibold">
+            Ticket Status
+        </h2>
+        <h3 class="text-lg text-white font-regular">
+           Tickets raised by You
+        </h3>
+    </div>
+</div>
+
+<section class="mr-5 ml-5">
+  <div style="overflow-x:auto;">
+   
+    <table id="myTable" class="table-fixed rounded-lg">
+      <thead class="rounded-lg bg-slate-300 p-2 rounded-md">
+        <tr data-widget="expandable-table" aria-expanded="false">
+          <th class="rounded-l-md p-2 text-left" onclick="sortTable(0)">ID</th>
+          <th class="text-left p-3" onclick="sortTable(1)">Issue Subject</th>
+          <th class="text-left p-3 m-2 " onclick="sortTable(2)">Description</th>
+          <th class="text-left p-3 m-2 " onclick="sortTable(3)">Status</th>
+
+          <th class="text-left p-3 m-2 " onclick="sortTable(7)">Created at</th>
+          <th class="text-left p-3 m-2 " onclick="sortTable(8)">Application name</th>
+          <th class="text-left p-3 m-2 " onclick="sortTable(9)">Resolved date</th>
+          <th class="text-left p-3 m-2 " onclick="sortTable(9)">Resolved By</th>
+          <th class="p-3 m-2 rounded-r-md "> Feedback </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for row in value %}
+        <!-- {{row}}   -->
+        <tr class="expandable-body">
+          <td class="p-3 text-left font-medium text-base ">{{row["ticketid"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["subject"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["description"]}}</td>
+          {% if row["status_name"] == "In Progress"%}
+          <td class="p-3 text-left font-medium text-base " style="color: blue;">
+            {% elif row["status_name"] == "Resolved"%}
+          <td class="p-3 text-left font-medium text-base " style="color: rgb(128, 0, 96);">
+            {% elif row["status_name"] == "Queued"%}
+          <td class="p-3 text-left font-medium text-base " style="color:rgb(255, 149, 0);">
+            {% elif row["status_name"] == "Closed"%}
+          <td class="p-3 text-left font-medium text-base " style="color: green">
+            {% elif row["status_name"] == "Reopen"%}
+          <td class="p-3 text-left font-medium text-base " style="color: red;">
+
+
+            {%else %}
+          <td class="p-3 text-left font-medium text-base " >{%endif %} {{row["status_name"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["created_at"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["application_name"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["resolved_date"]}}</td>
+          <td class="p-3 text-left font-medium text-base ">{{row["resolved_by"]}}</td>
+          {%if row["status_name"]=="Resolved"%}
+          <td>
+            <!-- The button to open modal -->
+            <label for="my-modal-4" tabindex="0" class="btn btn-ghost btn-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                  d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm14 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-7 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+              </svg>
+            </label>
+<!-- <label for="my-modal-4" class="btn">open modal</label> -->
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<label for="my-modal-4" class="modal cursor-pointer">
+  <label class="modal-box relative" for="">
+    <h3 class="font-bold text-lg">Your Issue has been resolved.</h3>
+    <p class="py-4">Was this solution helpful?</p>
+    <div class="modal-action">
+      
+      <label  class="btn btn-success"><a href="{{url_for('Yesfeedback')}}?ticketid={{row['ticketid']}}" >Yes</a></label>
+      <label  class="btn btn-error"><a href="{{url_for('Nofeedback')}}?ticketid={{row['ticketid']}}" >No</a></label>
+    </div>
+  </label>
+</label>
+<!-- <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    
+  </div>
+</div> -->
+            <!-- Was this solution helpful?
+        <tr>
+          <td><a href="{{url_for('Yesfeedback')}}?ticketid={{row['ticketid']}}" class="btn btn-primary">Yes</a></td>
+          <td><a href="{{url_for('Nofeedback')}}?ticketid={{row['ticketid']}}" class="btn btn-primary">No</a></td>
+        </tr> -->
+
+      </td>
+        </td>
+        {%else %}<td>{%endif %}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <script>
+      function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("myTable");
+        switching = true;
+        // Set the sorting direction to ascending:
+        dir = "asc";
+        /* Make a loop that will continue until
+        no switching has been done: */
+        while (switching) {
+          // Start by saying: no switching is done:
+          switching = false;
+          rows = table.rows;
+          /* Loop through all table rows (except the
+          first, which contains table headers): */
+          for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /* Check if the two rows should switch place,
+            based on the direction, asc or desc: */
+
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            } else if (dir == "desc") {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+              }
+            }
+            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+              shouldSwitch = true;
+              break;
+            }
+
+          }
+          if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // Each time a switch is done, increase this count by 1:
+            switchcount++;
+          } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+          }
+
+        }
+      }
+      const myFunction = () => {
+        const trs = document.querySelectorAll('#myTable tr:not(.header)')
+        const filter = document.querySelector('#myInput').value
+        const regex = new RegExp(filter, 'i')
+        const isFoundInTds = td => regex.test(td.innerHTML)
+        const isFound = childrenArr => childrenArr.some(isFoundInTds)
+        const setTrStyleDisplay = ({ style, children }) => {
+          style.display = isFound([
+            ...children // <-- All columns
+          ]) ? '' : 'none'
+        }
+
+        trs.forEach(setTrStyleDisplay)
+      }
+// input#myInput { width: 220px; }
+// table#myTable { width: 100%; }
+// table#myTable th { text-align: left; padding: 20px 0 10px; }
+
+
+
+    </script>
+    
+
+
+  </div>
+</section>
+</body>
+
+</html>

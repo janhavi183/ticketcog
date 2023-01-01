@@ -1,0 +1,92 @@
+kdbid,description,Category,application_name,Resolution
+1,access to access,Access,Access,"Type Access Control in the navigation filter.Select the Access Control (ACL) module.Select the New action at the top of the list.Under Operation, select Read, and under Name, select the name of the database view i.e. Incident SLA.Add the required roles needed to access the database view and click Submit."
+2,Access to colaboration platform,Access,Colaboration,Open collaboration tool-> Go to access . Give accsess to all
+3,password reset for collaboration_platform,Login,Colaboration,Open collaboration tool-> Go to file manager. -> Go to password reset for all users and reset the password for that specific user.
+4,engineering_tools not connected to network even though vpn is connected.,Configuration,Engineering_tool,Disconnect the network and try reconnecting.
+5,backup_tool failed erp,Backup,ERP,Backup service was not running.So re-run the backup service.
+6,backup_tool failed erp,Backup,ERP,Take access of user machine and reinstall the backup tool.
+7,erp access issue,Access,ERP,Type Access Control in the navigation filter.Select the Access Control (ACL) module.Add access to ERP for that specific user.
+8,production password reset,Login,ERP,Go to production server and select file manager and reset the passwor for that production.
+9,Tax Calculation wrong ,Finance,ERP,Go to finance module and edit the tax percentage.
+10,Not able to access ERP,Access,ERP,Clear memory cache from user's memory
+11,password changed in password_management_tool  but didnt update for erp account,Login,ERP, Restart the server 172.159.186.05.
+12,reporting_tool erp  error,Report,ERP,Restart reporting service from the server 192.168.5.2
+13,reset the password  erp,Login,ERP,reset password for that specific user in erp production tool
+14,Wrong calculation,Finance,ERP,Code changes done in finance gst module. Update the ERP tool
+15,ess login issue,Login,ESS,
+16,ess password reset,Login,ESS,reset password for that specific user in ess production tool
+17,misplaced login information for ess,Login,ESS,Go to ESS admin configuration. Set up new password for that user and send the new password to user.
+18,unable to log in to ess,Access,Ess,Restart Ess server 192.768.3.1
+19,cannot access wifi,Access,Hardware,Check the router connection and internet connection wires
+20,my pc don`t work with wifi,Access,Hardware,On the server and then take admin access of the pc and install router settings in the pc.
+21,need to setup wi fi access,Access,Hardware,Go to admin settings install wifi settings and network settings in the user pc .
+22,server crash,Crash,Hardware,Replace the server
+23,unable to connect to lan internet,Access,Hardware,On the server and then take admin access of the pc and install router settings in the pc.
+24,unable to print to printer,Print,Hardware,Update the driver to latest driver
+25,can not log into hr_tool etime through single sign on portal,Login,Hr_tool,Server need to be restarted
+26,unable to login to hr_tool,Login,Hr_tool,Reset the password and provide user the chnged username and password.
+27,crm add-in is getting disabled from outlook ,Configuration,Outlook,Go to admin settings of outlook enable the specific add in's for the user.
+28,Issue with my outlook view,Hardware,Outlook,Restart the outook server 192.168.3.1 
+29,issues with outlook,Configuration,Outlook,Install updates for the user and make changes to make it comapatible with user's machine
+30,login issue for outlook,Login,Outlook,Go to admin settings and check te username and password. Reset the password and send it to user.
+31,password reset for outlook,Login,Outlook,Go to admin settings create a password reset link and send it to user for login.
+32,outlook crashing,Crash,Outlook,Check the server connection.
+33,outlook hangs.,Crash,Outlook,Code changes done in outlook . Update the outlook.
+34,outlook indexing error ,Configuration,Outlook,"rebuild the search catalog, which restarts the indexing the data files"
+35,outlook setting is changed,Configuration,Outlook,Install updates for the user and make changes to make it comapatible with user's machine
+36,outlook not accessible,Configuration,Outlook,Check whether the server is down. 
+37,outlook not accessible even though the login details are correct,Configuration,Outlook,Go to outlook admin settings and enable access to the user. 
+38,unable to access mails ,Access,Outlook,Some code changes were being done so server was down. Refresh the mail box.
+39,unable to open outlook,Access,Outlook,Check whether the computer is connected to internet.
+40,access to PowerBi,Access,PowerBi,Go to admin settings and give access to powerBi to that user
+41,PowerBi page not loading,Page_not_loading,PowerBi,Check the network settings and wheter the computer is connected to internet.
+42,PowerBi page not loading,Page_not_loading,PowerBi,Restart the server.
+43,internal users are unable to download discount price file on distributor_tool / company center,Finance,SAP,Code changes done in in the finace module of SAP. Install the update and configure the settings .
+44,internal users are unable to download discount price file on distributor_tool / company center,Finance,SAP,Check the server connection with ip 198.621.3.1.
+45,reset passwords for sap,Login,SAP,Go to admin settings and reset password for that user.
+46,reset scm_software password,Login,SAP,Reset password with Scm admin settings
+47,sap crashing,Crash,SAP,Clear memory
+48,unable to display expense report,Report,SAP,Go to sap admin settings and give access to that specific user to view report.
+49,unable to view payslips in SAP,Report,SAP,Go to sap admin settings and give access to that specific user to view payslips.
+50,can not login skype,Login,Skype,Go to skype admin settings and give login access to the user
+51,skype crash,Crash,Skype,The server was down .Restart the server
+52,skype error while logging in,Login,Skype,Reset login details for user and send them the details.
+53,status does not change on telephony_software,Configuration,Skype,Take access of user machine and reinstall the skype and change the configuration
+54,unable to log in to  skype,Login,Skype,Check whether thae machine has right network connections.
+55,new password not working in vpn,Login,VPN,Check the firewall configuration and setup the access
+56,unable to access vpn,Access,VPN,Check the server and give access from admin 
+57,username locked,Login,VPN,Go to admin settings of VPN and unlock the user .
+58,vpn not working.,Crash,VPN,Restart the server.
+59,need file restored on drive,Hardware,Windows,Go to server and find the file on cloud and restore it on the user's machine with admin access
+60,unable to login to system,Login,Windows,Contact security management and ask for login details to be mailed 
+61,windows account locked,Login,Windows,Contact security management and unlock the user 
+62,windows password reset,Login,Windows,Go to security management and reset the password.
+63,skype crashing,Crash,Skype,Server changed
+64,skype account locked,Login,Skype,Go to admin settings and unlock the user
+127,skype crashing,Crash,Skype,Server changed. Restart the server
+128,I forgot my sap account password.Want to reset it.,Login,SAP,Give admin access
+130,I deleted ppt accidentally which is very imporant,Access,Powerpoint,Go to cloud admin settings and look for backup there the file is available
+136,erp crash,Crash,ERP,ERP code changes done
+138,unable to access hr_tool page,Login,Hr_tool,Server restart needed
+140,outlook frozen,Crash,Outlook,Outlook updated
+143,outlook crashing,Crash,Outlook,Code changes done
+144,Sap crashing on login,Crash,SAP,Sap code changes done and upgraded to new version
+146,Outlook not loading on login,Page_not_loading,Outlook,Outlook updated
+147,cant log in to vpn,Login,VPN,Restart vpn server
+148,Unable to login as it shows incorrect login details,Login,ERP,Give admin access to user
+149,Laptop Battery draining ,Hardware,Hardware,Change battery
+150,cant log in to vpn,Login,VPN,Code changes done
+151,Laptop Battery draining ,Hardware,Hardware,Updated laptop and cleared virus
+153,Battery draining,Hardware,Hardware,Device to be submitted at helpdesk
+155,Outlook not loading on login,Page_not_loading,Outlook,Code changes done . Updated outlook
+157,erp crash,Crash,ERP,Erp code  changes done
+158,cant log in to vpn,Login,VPN,Server restarted
+159,Unable to login as it shows incorrect login details,Login,ERP,Take admin access and reset password
+160,PowerBi crashing on login,Crash,PowerBi,Code changes done . Update PowerBi.
+161,PowerBi crashing on login,Crash,PowerBi,PowerBi server restarted
+162,skype setting not matching current project setting ,Configuration,Skype,Go to settings ->Configuration->Change security settings from high to medium
+163,Printer not connecting to laptop,Hardware,Hardware,Try checking printer settings and make it access laptop Bluetooth.
+164,skype crashing,Crash,Skype,Restarted skype server
+165,skype crashing,Crash,Skype,Updated Skype
+166,Unable to login in PowerBi,Login,PowerBi,PowerBi Reinstalled
+167,unable to access ess,Access,Ess,Ess application updated and given access

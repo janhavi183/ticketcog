@@ -1,0 +1,63 @@
+<!--Store this code in 'login.html' file inside the 'templates' folder-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title> Login </title>
+	<!-- <link rel="stylesheet" href="../static/style.css"> -->
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+	<!-- <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style> -->
+<!-- <div class="lg:min-w-screen lg:min-h-screen bg-purple-600 md:min-w-screen md:min-h-screen md:bg-purple-600 flex items-center p-20 lg:pt-10 lg:pb-10 overflow-hidden relative">
+    <div class="flex-1 md:min-h-full md:min-w-full lg:min-h-full lg:min-w-full md:rounded-2xl md:bg-white md:shadow-xl  p-10 lg:p-10  text-gray-800 relative md:flex items-center text-center md:text-left"> -->
+		<div class="lg:min-w-screen lg:min-h-screen lg:bg-purple-600 md:bg-purple-600  sm:min-w-screen sm:min-h-screen sm:bg-purple-600 flex lg:items-center p-10 lg:p-10 overflow-hidden relative">
+			<div class="flex-1 md:min-h-full md:min-w-full md:rounded-2xl md:bg-white md:shadow-xl sm:rounded-2xl sm:bg-white sm:shadow-xl p-10 lg:p-10 text-gray-800 relative md:flex  md:text-center md:text-left">
+		<div class="w-full md:full">
+		<div class="logincontent  mt-2" align="center">
+		
+            <!-- <div class="mb-10 lg:mb-10"> -->
+
+		
+			<div class="top md:items-center md:justify-center">
+				<h1 class="text-4xl font-semibold leading-loose flex inline-flex">
+				<img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-10 mr-2" alt="TicketCog Logo">
+				<a class="btn btn-ghost normal-case text-3xl">TicketCOG</a></h1>
+			</div>
+				<!-- <h1 class="text-2xl font-semibold leading-loose">Welcome</h1> -->
+				<!-- <h3 class="text-xl font-normal leading-loose">To save your data please login</h3> -->
+		<div class="loginbottom lg:flex mt-5 mb-5 align-middle space-x-6">
+			<div class="w-full md:full mb-10 lg:mb-10">
+			<div class="left lg:ml-12 bg-base-100 drop-shadow-2xl p-5 w-full rounded-2xl bg-white drop-shadow-2xl p-5 lg:p-5 text-gray-900 relative items-center text-center md:text-center md:items-left">
+				<!-- <h1 class="text-2xl font-semibold leading-loose mb-5">Welcome</h1> -->
+				<h1 class="text-2xl font-semibold leading-loose mb-5">Sign in</h1>
+				<form action="{{ url_for('login')}}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<input type="text" name="username" placeholder="Enter Your Username" class=" w-80 input input-bordered input-primary w-full max-w-xs" id="username"
+						required></br></br>
+					<input type="password" name="password" placeholder="Enter Your Password" class="w-80 input input-bordered input-primary w-full max-w-xs" id="password"
+						required></br></br>
+					<input type="submit" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center" value="Login">
+				</form></br></br>
+				<p class="worddark mb-2">New to this page? <a class="worddark text-blue-700" href="{{ url_for('register')}}">Register here</a>
+				</p>
+				</div>
+			</div>
+
+			<div class="ml-0  mr-8 right w-full md:full text-center">
+				<img class="h-96 w-full max-w-lg lg:max-w-full mx-auto" src="../static/images/Hi.gif" alt="login image">
+			</div>
+			</div>
+			<!-- </div> -->
+		</div>
+	</div>
+</div>
+	<div class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
+    <div class="w-96 h-full bg-blue-200 bg-opacity-20 absolute -bottom-96 right-64 rounded-full pointer-events-none -rotate-45 transform"></div>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!--Store this code in 'register.html' file inside the 'templates' folder-->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> SME KEDB ADD </title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-50 font-sans "">
+    <div class="lg:min-w-screen lg:min-h-screen lg:bg-purple-600 md:bg-purple-600  sm:min-w-screen sm:min-h-screen sm:bg-purple-600 flex lg:items-center p-10 lg:p-10 overflow-hidden relative">
+        <div class="flex-1 md:min-h-full md:min-w-full md:rounded-2xl md:bg-white md:shadow-xl sm:rounded-2xl sm:bg-white sm:shadow-xl p-10 lg:p-10 text-gray-800 relative md:flex  md:text-left">
+    <div class="w-full md:full">
+    <div class="one">
+
+        <div class="navbar bg-base-100">
+			<div class="navbar-start">
+				<div class="dropdown">
+					<label tabindex="0" class="btn btn-ghost btn-circle">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+							stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h7" />
+						</svg>
+					</label>
+					<ul tabindex="0"
+						class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+						<li><a href="{{url_for('smetablepage')}}">Homepage</a></li>
+						<li><a href="{{url_for('searchpage')}}">Search</a></li>
+						<li><a href="{{url_for('display')}}">Profile</a></li>
+						<li><a href="{{url_for('logout')}}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="navbar-center">
+                <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-8 mr-2" alt="TicketCog Logo">
+				<a class="btn btn-ghost normal-case text-2xl">TicketCOG</a>
+				<!-- <a class="btn btn-ghost normal-case text-xl">ticketCOG</a> -->
+			</div>
+			<div class="navbar-end">
+				<div class="flex space-x-2 align-middle ">
+
+				</div>
+				<!-- <div class="dropdown dropdown-end">
+					<label tabindex="0" class="btn btn-ghost btn-circle">
+						<div class="avatar">
+							<div class="ml-3 w-8 rounded-full">
+								<img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+							</div>
+						</div>
+					</label>
+					<ul tabindex="0"
+						class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+						<li><a href="{{url_for('display')}}">Profile</a></li>
+						<li><a href="{{url_for('logout')}}">Logout</a></li>
+					</ul>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- <div class="spacing mr-7 ml-7 mt-7 mb-5">
+			<div class="info bg-violet-700 p-5 rounded-md">
+				<h2 class="text-xl text-white font-semibold">
+					Subject Matter Expert Add Resolution
+				</h2>
+				<h3 class="text-lg text-white font-regular">
+					Add your resolution 
+				</h3>
+			</div>
+		</div> -->
+
+		<div class=" mr-7 ml-7  mb-5 text-sm font-medium breadcrumbs">
+			<ul>
+				<li>SME</li>
+				<li><a href="{{url_for('smetablepage')}}">SME Ticket Table</a></li>
+				<li>Add Resolution</li>
+			</ul>
+		</div>
+
+        <span class="ml-7 text-2xl font-medium">Add resolution</span>
+
+        <div class="content mt-3" >
+            <div class="Ticketbottom flex justify-center ">
+                <div class="tailwinddiv card bg-base-100 drop-shadow-2xl p-10 lg:w-3/4 rounded-2xl bg-white drop-shadow-2xl p-10 lg:p-10 text-gray-900 relative md:flex items-center text-center md:text-left md:items-center md:w-full">     
+                <form action="{{ url_for('smeKedbAdd')}}" method="post" autocomplete="off">
+                    <div class="msg">{{ msg }}</div>
+                    {% block content %}
+
+                    <div class="">
+                        <div class="worddark">
+                            <div class="lg:flex lg:space-x-4">
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">Ticket ID</span>
+                                </label>
+                                <input type="text" value="{{ account['ticketid'] }}"
+                                    class="input input-bordered w-full max-w-xs" disabled />
+                                <input type="hidden" name="ticketid" value="{{account['ticketid']}}">
+                            </div>
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">User email:</span>
+                                </label>
+                                <input type="text" name ='email' value="{{ account['email'] }}"
+                                    class="input input-bordered w-full max-w-xs" disabled />
+                                <input type="hidden" name="email" value="{{account['email']}}">                               
+                                
+                        </div>
+                        </div>
+                            <div class="lg:flex lg:space-x-4">
+                                <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text font-medium">Subject:</span>
+                                    </label>
+                                    <input type="text" value="{{ account['subject'] }}"
+                                        class="input input-bordered w-full  max-w-xs" disabled />
+                                </div>
+                                <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                    <label class="label">
+                                        <span class="label-text font-medium">Description:</span>
+                                    </label>
+                                    <input
+											class="input input-bordered w-full max-w-xs"
+											value="{{ account['description'] }}" readonly></input>
+                                    <!-- <textarea
+                                        class="textarea w-72 text-black  value:font-bold value:text-black"
+                                       name="description" value="{{ account['description'] }}" disabled></textarea> -->
+                                       <input type="hidden" name="description" value="{{account['description']}}">
+                                </div>
+                            </div>
+
+                            
+                            </div>
+                            <div class="lg:flex lg:space-x-4">
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">Application name:</span>
+                                </label>
+                                <input type="text" name='application_name' value="{{ account['application_name'] }}"
+                                    class="input input-bordered w-full max-w-xs" disabled />
+                                <input type="hidden" name="application_name" value="{{account['application_name']}}">
+                            </div>
+
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">Category:</span>
+                                </label>
+                                <input type="text" name='Category' value="{{ account['Category'] }}"
+                                    class="input input-bordered w-full max-w-xs" disabled />
+                                <input type="hidden" name="Category" value="{{account['Category']}}">
+                            </div>
+                            </div>
+
+                            <div class="lg:flex lg:space-x-4">
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">Status</span>
+                                </label>
+                                <select class="select w-80 select-primary" name="status_idup" id="status_idup">
+                                        <option value="1" {% if account['status_name']=='Queued' %} selected="selected"
+                                            {% endif %}>Queued</option>
+                                        <option value="2" {% if account['status_name']=='In Progress' %}
+                                            selected="selected" {% endif %}>In Progress</option>
+                                        <option value="4" {% if account['status_name']=='Resolved' %}
+                                            selected="selected" {% endif %}>Resolved</option>
+                                        <option value="3" {% if account['status_name']=='Closed' %} selected="selected"
+                                            {% endif %}>Closed</option>
+                                    </select>
+                            </div>
+
+                            <div class="form-control w-full lg:w-1/2 max-w-xs">
+                                <label class="label">
+                                    <span class="label-text font-medium">Priority</span>
+                                </label>
+                                <select class="select w-80 select-primary"  name="priority_idup" id="priority_idup">
+                                    <option value="1" {% if account['priority_name']=='Low' %}
+                                    selected="selected" {% endif %}>Low</option>
+                                <option value="2" {% if account['priority_name']=='Medium' %}
+                                    selected="selected" {% endif %}>Medium</option>
+                                <option value="4" {% if account['priority_name']=='High' %}
+                                    selected="selected" {% endif %}>High</option>
+                                <option value="3" {% if account['priority_name']=='Critical' %}
+                                    selected="selected" {% endif %}>Critical</option>
+                                        <!-- <option value="1">Low</option>
+                                        <option value="2">Medium</option>
+                                        <option value="3">High</option>
+                                        <option value="4">Critical</option> -->
+                                    </select>
+                            </div>
+                        </div>
+                            <div class="form-control max-w-full lg:w-full ">
+                                <label class="label">
+                                    <span class="label-text font-medium">Resolution:</span>
+                                </label>
+                                <span><input type="text" name="Resolution" placeholder="Resolution" class="textbox input input-bordered lg:w-[41rem] md:w-full "
+                                        id="Resolution" required>
+                            </div>
+                        </div>
+                    {% endblock %}
+                    <div class="flex justify-center">
+                        <button type="submit" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center" name="Add_resolution" value="Add resolution to user"> Add
+                            resolution</button>
+                        </div>
+                    </div>
+                    
+
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+        <!-- <div class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
+        <div class="w-64 h-full bg-yellow-200 bg-opacity-10 absolute -bottom-96 left-64 rounded-full pointer-events-none -rotate-45 transform"></div> -->
+        <!-- <div class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
+    <div class="w-96 h-full bg-blue-200 bg-opacity-20 absolute -bottom-96 right-64 rounded-full pointer-events-none -rotate-45 transform"></div> -->
+    </div>
+</body>
+
+</html>

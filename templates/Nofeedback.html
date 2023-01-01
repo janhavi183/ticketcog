@@ -1,0 +1,111 @@
+<html lang="en">
+	<head>
+		<title>{{ title }}</title>
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+	  </head>
+	<body class="bg-slate-50 font-sans mb-5">
+		<div class="navbar bg-base-100">
+		  <div class="navbar-start">
+			  <div class="dropdown">
+				  <label tabindex="0" class="btn btn-ghost btn-circle">
+					  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+						  stroke="currentColor">
+						  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+							  d="M4 6h16M4 12h16M4 18h7" />
+					  </svg>
+				  </label>
+				  <ul tabindex="0"
+					  class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+					  <li><a href="{{url_for('searchpage')}}">Search</a></li>
+					  <li><a href="{{url_for('createticket')}}">Create Ticket</a></li>
+					  <li><a href="{{url_for('ticketstatus')}}">Ticket Status</a></li>
+					  <li><a href="{{url_for('display')}}">Profile</a></li>
+					  <li><a href="{{url_for('logout')}}">Logout</a></li>
+				  </ul>
+			  </div>
+		  </div>
+		  <div class="navbar-center">
+			<img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="TicketCog Logo">
+				<a class="btn btn-ghost normal-case text-xl">TicketCOG</a>
+			  <!-- <a class="btn btn-ghost normal-case text-xl">ticketCOG</a> -->
+		  </div>
+		  <div class="navbar-end">
+			  <div class="flex space-x-2 align-middle ">
+	  
+			  </div>
+			  <div class="dropdown dropdown-end">
+				  <label tabindex="0" class="btn btn-ghost btn-circle">
+					  <div class="avatar">
+						  <div class="ml-3 w-8 rounded-full">
+							  <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+						  </div>
+					  </div>
+				  </label>
+				  <ul tabindex="0"
+					  class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+					  <li><a href="{{url_for('display')}}">Profile</a></li>
+					  <li><a href="{{url_for('logout')}}">Logout</a></li>
+				  </ul>
+			  </div>
+		  </div>
+	  </div>
+	  
+	  <div class="spacing mr-7 ml-7 mt-7 mb-5">
+		  <div class="info bg-violet-700 p-5 rounded-md">
+			  <h2 class="text-xl text-white font-semibold">
+				  We are sorry your issue was resolved correctly
+			  </h2>
+			  <h3 class="text-xl text-white font-semibold">
+				Please reopen ticket
+			</h3>
+		  </div>
+	  </div>
+	  
+	  <section class="mr-5 ml-5">
+		<div style="overflow-x:auto;">
+			
+			<form action="{{ url_for('Nofeedback') }}" method="post" autocomplete="off">
+				<div class="flex space-x-16 justify-center">
+					<div class="contentbar">
+
+						{% block content %}
+						<div class="">
+							<div class="">
+								<div class="form-control w-full max-w-xs">
+									<label class="label">
+										<span class="label-text">{{ msg }}</span>
+									</label>
+								</div>
+
+					<input type="hidden" name="ticketid" value={{ticketid}} />
+						<!-- <div class="border"> -->
+							<!-- <table class="worddark"></br></br></br></br>
+								<tr> -->
+									<div class="form-control  w-44 max-w-xs text-lg font-bold">
+										<label class="label">
+											<label class="label">Ticket number: </label>
+											<p class="label">{{ account['ticketid'] }}</p>
+										</label>
+									</div>
+							</div>
+						</div>
+								<!-- </tr> -->
+								
+
+					{% endblock %}
+							
+
+					<div class="flex justify-center">
+						<input type="submit" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center"
+						name="reopen_ticket" value="Reopen ticket">
+					</div>
+					<!-- <input type="submit" class="btn" name="close_ticket" value="close ticket"> -->
+<!-- </table>					  -->
+				</form>					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html> 

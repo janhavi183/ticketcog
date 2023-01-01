@@ -1,0 +1,160 @@
+<!-- Search Bar -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>searchpage</title>
+  
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .bg-smoke-dark {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+    </style>
+     <!-- <meta name="viewport" content="width=device-width, initial-  
+        scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  </head>
+  
+    <!-- <head> -->
+        
+        <!-- <link rel="stylesheet" href="/static/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <!-- </head> -->
+    <body>
+      <nav class="p-3 border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+        <div class="container flex flex-wrap items-center justify-between mx-auto">
+          <a href="#" class="flex items-center">
+            <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2" alt="TicketCog Logo">
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">TicketCOG</span> 
+          </a>
+          <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+            <ul class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+              <li>
+                <a class="block py-2 pl-3 mt-3 pr-4 text-white bg-blue-700 text-base rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"  href="{{url_for('searchpage')}}">Home <span class="sr-only">(current)</span></a>
+                <!-- <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a> -->
+              </li>
+              <!-- <li>
+                <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+              </li> -->
+              {%if session['username']%}
+              <li>
+                <a class="block py-2 pl-3 mt-3 pr-4 text-gray-700 rounded hover:bg-gray-100 font-medium text-base md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" href="{{url_for('createticket')}}">Create Ticket</a>
+                <!-- <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a> -->
+              </li>
+              <li>
+                <a class="block py-2 pl-3 mt-3 pr-4 text-gray-700 rounded hover:bg-gray-100 font-medium text-base md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" href="{{url_for('ticketstatus')}}">Ticket Status</a>
+                <!-- <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a> -->
+              </li>
+              <!-- <li> -->
+                <div class="dropdown dropdown-end ">
+                  <label tabindex="0" class="btn btn-ghost btn-circle">
+                    <div class="avatar">
+                      <div class="ml-3 w-8 rounded-full">
+                        <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
+                      </div>
+                    </div>
+                  </label>
+                  <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="{{url_for('display')}}">Profile</a></li>
+                    <li><a href="{{url_for('logout')}}">Logout</a></li>
+                  </ul>
+                </div>
+              <!-- </li> -->
+              {%else%}
+                 <li class="nav-item text-base"><a  class="nav-link block py-2 pl-3 mt-3 pr-4 text-black bg-white-700 text-base rounded md:bg-transparent md:text-black-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"  href="{{url_for('login')}}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="items-center bg-cover bg-bottom p-5 md:py-48 md:px-20" style="background-image:url('https://support.content.office.net/en-us/media/76bb3497-baf7-4f68-ac15-0da34f0caf56.png');">
+        <h1 class="font-serif text-2xl md:text-3xl leading-tight text-center font-normal text-white mb-4">Welcome to IT Support</h1>
+        <form class="bg-smoke-dark p-10 mt-2 md:p-10 rounded w-full shadow-lg" method="post" action="">
+          
+          <!-- <h1 class="font-serif text-2xl md:text-3xl leading-tight text-center font-normal text-white mb-8">Welcome to IT Support</h1> -->
+      
+          <div class="flex flex-wrap items-end -mx-3">
+            <div class="w-full px-3 mb-3 mt-3">
+              <!-- <form class="flex w-150" method="post" action="">    -->
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                  <input type="search" name="Issue" id="Issue" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search issues" required>
+                  <button type="submit" onclick= "autoScroll()" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                      <span class="sr-only">Search</span>
+                  </button>
+              </div>
+              </form>
+            </div>
+            </div>
+            <!-- <div class="w-full md:w-1/3 px-3 md:mb-0">
+              <button class="font-bold leading-tight bg-red hover:bg-red-light border border-red hover:border-red-light w-full text-white uppercase tracking-wide py-3 px-4 rounded">Search</button>
+            </div> -->
+          </div>
+      
+        <!-- </form> -->
+      
+      </div>
+    <div class="content lg:flex justify-center align-middle mt-2" align="center">
+		<!-- <div class="top md:items-center md:justify-center"> -->
+			<!-- <div class="top">
+				<h1 class="text-4xl font-semibold leading-loose flex inline-flex">
+				<img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-10 mr-2" alt="TicketCog Logo">
+				<a class="btn btn-ghost normal-case text-3xl">TicketCOG</a></h1> -->
+				<!-- <h1 class="text-2xl font-semibold leading-loose">Welcome</h1> -->
+				<!-- <h3 class="text-xl font-normal leading-loose">To save your data please login</h3> -->
+		<div class="loginbottom lg:flex mt-2  align-middle space-x-6 ">
+      <div class="w-full md:full mb-10 lg:mb-10">
+			<div class="left mg:ml-40 lg:ml-30 mr-2">
+        <div id="bottom" class="ml-20 mb-3 w-max max-w-lg lg:max-w-full mx-auto p-6 p-10 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 items-center">
+          <!-- <svg class="w-10 h-10 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg> -->
+          <!-- <a href="#"> -->
+              <h5 class="mb-2 text-xl font-normal tracking-tight text-gray-900 dark:text-white">Question : {{Que}}</h5>
+          <!-- </a> -->
+          <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">Answer  : 
+            {% for item in response %}
+            <!-- <tr> -->
+                <!-- <td> -->
+                   <p class="mb-3 font-normal text-gray-500 dark:text-gray-900" >{{item}} </p>
+                  <!-- </td> -->
+                </br>
+            <!-- </tr> -->
+        {% endfor %}
+        
+          </p>
+          {% for item in response %}
+          {% if item== "I am sorry! I don't have a solution ."%} 
+          <span class="mb-3 font-normal text-gray-500 dark:text-gray-400">Please create ticket</span><br>
+          <a href="{{url_for('createticket')}}" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center">Create Ticket</a>
+          {%else%}
+          {%endif%}
+          {%endfor%}
+        </div>
+			</div>
+    </div>
+			<div class="ml-0  mr-8 right w-full md:full text-center">
+				<img class="h-96 w-max max-w-lg lg:max-w-full mx-auto " src="../static/images/helpdeskcrop.gif" alt="login image">
+			</div>
+    </div>
+    </div>
+		<!-- </div> -->
+	</div>
+	</div>
+  <script>
+    function autoScroll(){
+
+// window.scrollTo(0, 500);
+document.getElementById( 'bottom' ).scrollIntoView();
+    window.setTimeout( function () { autoScroll(); }, 20000 );
+
+}
+autoScroll();
+  </script>
+    </body>
+</html>

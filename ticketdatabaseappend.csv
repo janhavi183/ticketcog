@@ -1,0 +1,41 @@
+ticketid,subject,status_idup,priority_idup,created_at,Category,application_name
+1,reset password,3,1,2022-10-12 11:15:00,Login,SAP
+2,visual studio code,3,1,2022-10-13 00:00:00,Configuration,VS
+3,Accidentally Deleted Important Files,4,1,2022-10-13 12:15:00,Access,Powerpoint
+4,Excel not responding,5,1,2022-10-13 13:00:00,Crash,Excel
+5,login issue,3,2,2022-10-14 14:15:00,Login,ERP
+6,outlook,3,1,2022-10-14 15:00:00,Crash,Outlook
+7,cant log in to vpn,4,2,2022-10-14 16:00:00,Login,VPN
+8,unable to access hr_tool page,3,2,2022-10-14 16:15:00,Login,Hr_tool
+9,skype error ,4,1,2022-10-14 20:15:00,Crash,Skype
+10,unable to log in to engineering tool and skype,3,1,2022-10-14 20:30:00,Login,Skype
+11,unable to disable add ins on outlook,3,1,2022-10-14 20:30:00,Configuration,Outlook
+12,engineering tool says not connected and unable to submit reports,3,2,2022-10-14 20:30:00,Report,Engineering_tool
+13,hr_tool site not loading page correctly,3,1,2022-10-14 20:30:00,Page_not_loading,Hr_tool
+14,Want to reset the password for outlook,3,2,2022-10-14 20:40:00,Login,Outlook
+15,unable to open payslips ,2,2,2022-10-14 20:40:00,Finance,SAP
+63,sap crashing,1,2,2022-11-11 19:09:23,Crash,SAP
+64,Not able to access ERP,1,2,2022-11-12 13:23:52,Access,ERP
+65,Sap password reset,1,3,2022-11-22 20:00:52,Login,SAP
+66,Windows account locked,1,3,2022-11-23 16:35:10,Login,Windows
+67,sap crashing,1,4,2022-11-23 16:36:48,Crash,SAP
+68,windows updated some features not working,2,1,2022-11-28 16:23:53,Configuration,Windows
+69,Laptop battery,1,1,2022-12-03 17:44:27,Hardware,Hardware
+70,erp crash,4,2,2022-12-07 01:32:10,Crash,ERP
+71,outlook crashing,3,2,2022-12-07 22:24:26,Crash,Outlook
+72,sap crashing,3,3,2022-12-16 13:40:12,Crash,SAP
+73,Battery draining,4,2,2022-12-17 18:34:47,Hardware,Hardware
+74,Battery draining,4,2,2022-12-17 18:40:33,Hardware,Hardware
+75,Outlook not loading,4,2,2022-12-17 18:44:34,Page_not_loading,Outlook
+76,Outlook not loading,3,3,2022-12-17 18:44:44,Page_not_loading,Outlook
+77,Battery draining,4,2,2022-12-19 19:08:23,Hardware,Hardware
+78,Access page not loading,3,1,2022-12-20 15:57:45,Page_not_loading,Access
+79,outlook crashing,3,2,2022-12-25 19:22:37,Crash,Outlook
+80,PowerBi crashing on login,3,2,2022-12-27 16:41:19,Crash,PowerBi
+81,Erp Backup needed,1,1,2022-12-27 18:41:58,Backup,ERP
+82,skype setting not matching current project setting ,4,2,2022-12-29 21:00:59,Configuration,Skype
+83,Unable to access ess,5,1,2022-12-30 14:18:47,Access,Ess
+84,Outlook not loading on update,3,2,2022-12-30 15:37:05,Page_not_loading,Outlook
+85,Printer not connecting to laptop,4,4,2022-12-30 15:53:41,Hardware,Hardware
+86,Unable to login in PowerBi,4,4,2022-12-30 19:15:14,Login,PowerBi
+87,Erp login not working ,1,2,2023-01-01 14:53:39,Login,ERP

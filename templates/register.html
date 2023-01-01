@@ -1,0 +1,59 @@
+<!--Store this code in 'register.html' file inside the 'templates' folder-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> register </title>
+		<link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body>
+		<div class="min-w-screen min-h-screen bg-purple-600 flex items-center p-20 lg:pt-10 lg:pb-10 overflow-hidden relative">
+			<div class="flex-1 min-h-full min-w-full rounded-2xl bg-white shadow-xl p-10 lg:p-10  text-gray-800 relative md:flex items-center text-center md:text-left">
+				<div class="w-full md:full">
+					<div class="logincontent  mt-2" align="center">
+		
+						<!-- <div class="mb-10 lg:mb-10"> -->
+			
+					
+						<div class="top items-center justify-center ">
+							<h1 class="text-4xl font-semibold leading-loose flex inline-flex">
+							<img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-10 mr-2 " alt="TicketCog Logo">
+							<a class="btn btn-ghost normal-case text-3xl">TicketCOG</a></h1>
+						</div>
+					
+		<!-- <div class="logincontent flex justify-center align-middle mt-7" align="center"> -->
+		
+
+			
+				<div class="registerbottom lg:flex mt-2 mb-5 align-middle space-x-4">
+					<div class="w-full md:w-full mb-10  lg:mb-10">
+						<div class="left lg:ml-10 bg-base-100 drop-shadow-2xl p-5 w-full rounded-2xl bg-white drop-shadow-2xl p-5 lg:p-5 text-gray-900 relative items-left text-center md:text-center md:items-left ">
+					<!-- <div class="left"> -->
+						<h1 class="text-2xl font-semibold leading-loose mb-5">Sign up</h1>
+						<form action="{{ url_for('register')}}" method="post" autocomplete="off">
+							<div class="msg">{{ msg }}</div>
+							<input type="text" name="username" placeholder="Enter Your Username" class="w-96 input input-bordered input-primary w-full max-w-xs textbox" id="username" required></br></br>
+							<input type="password" name="password" placeholder="Enter Your Password" class="w-80 input input-bordered input-primary w-full max-w-xs textbox" id="password" required></br></br>
+							<input type="email" name="email" placeholder="Enter Your Email ID" class="w-80 input input-bordered input-primary w-full max-w-xs textbox" id="email" required></br></br>
+							<!-- <input type="text" name="role_id" placeholder="Enter Your Role" class="textbox" id="role_id" required></br></br> -->
+							
+							<input type="submit" class="btn mt-4 btn-primary w-80 bg-gradient-to-r from-indigo-500 to-purple-900 hover:from-purple-500 to-purple-700 place-self-center" value="Register">
+							</form>
+							
+							<p class="worddark">Already have account? <a class="worddark" href="{{ url_for('login')}}">Login here</a></p>
+					</div>
+					</div>
+					<div class="ml-0  mr-8 right w-full md:full text-center">
+						<img class="h-96 w-full max-w-lg lg:max-w-full mx-auto" src="../static/images/login.png" alt="login image">
+					</div>
+					</div>
+					</div>
+					</div>
+				<!-- </div> -->
+	</div>
+	<div class="w-64 md:w-96 h-96 md:h-full bg-blue-200 bg-opacity-30 absolute -top-64 md:-top-96 right-20 md:right-32 rounded-full pointer-events-none -rotate-45 transform"></div>
+    <div class="w-96 h-full bg-blue-200 bg-opacity-20 absolute -bottom-96 right-64 rounded-full pointer-events-none -rotate-45 transform"></div>
+		</div>
+	</body>
+</html>
+
