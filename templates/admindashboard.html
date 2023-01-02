@@ -33,10 +33,6 @@
             </div>
             <input type="text" name="email" id="topbar-search" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5" placeholder="Search">
          </div>
-          <!-- <input
-            class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-            type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Query"
-            title="Type in a name or a country"> -->
         </div>
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="ml-3 btn btn-ghost btn-circle">
@@ -168,7 +164,7 @@
                           <h3 class="text-base font-normal text-gray-500">Issues Application wise</h3>
                           <select id="ApplicationList">
                            <option value="../static/sample.png">All</option>
-                           <option value="../static/CurrentWeek_application.png">Current Week </option>
+                           <option value="../static/Currentweek_application.png">Current Week </option>
                            <option value="../static/previousweek_application.png">Last week</option>
                            <option value="../static/Current_application.png">Current Month </option>
                            <option value="../static/1monthbefore_application.png">Last month</option>
@@ -256,7 +252,7 @@
                      <h3 class="text-base font-normal text-gray-500">Issues Priority wise</h3>
                      <select id="PriorityList">
                         <option value="../static/priority.png">All</option>
-                        <option value="../static/CurrentWeek_priority.png">Current Week </option>
+                        <option value="../static/Currentweek_priority.png">Current Week </option>
                         <option value="../static/previousweek_priority.png">Last week</option>
                         <option value="../static/Current_priority.png">Current Month </option>
                         <option value="../static/1monthbefore_priority.png">Last month</option>
@@ -286,9 +282,9 @@
                  <div class="bg-white shadow rounded-lg p-1 sm:p-2 xl:p-2 ">
                   <div class="bg-white shadow rounded-lg p-4 sm:p-6 xl:p-8  2xl:col-span-4">
                      <h3 class="text-base font-normal text-gray-500">Issues Category wise </h3>
-                     <select id="CarList">
+                     <select id="CategoryList">
                         <option value="../static/Category.png">All</option>
-                        <option value="../static/CurrentWeek_Category.png">Current week</option>
+                        <option value="../static/Currentweek_Category.png">Current week</option>
                         <option value="../static/previousweek_Category.png">Last week</option>
                         <option value="../static/Current_Category.png">Current month</option>
                         <option value="../static/1monthbefore_Category.png">Last month</option>
@@ -372,12 +368,12 @@
   <script src="https://demo.themesberg.com/windster/app.bundle.js"></script> -->
 </div>
 <script>
-   function setCar() {
+   function setCategory() {
        var img = document.getElementById("image");
        img.src = this.value;
        return false;
    }
-   document.getElementById("CarList").onchange = setCar;
+   document.getElementById("CategoryList").onchange = setCategory;
    function setApplication() {
        var img = document.getElementById("applicationimage");
        img.src = this.value;

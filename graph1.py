@@ -881,41 +881,6 @@ def applicationHardwaremonths():
 	# plt.savefig('my_plot.png')
 	plt.close()
 	return
-# def categorycurrentcount():
-# 	mycursor.execute("SELECT Category, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 0 MONTH) GROUP BY (Category)")
-# 	result = mycursor.fetchall
-# 	Category = []
-# 	count = []
-
-# 	for i in mycursor:
-# 		Category.append(i[0])
-# 		count.append(i[1])
-		
-# 	print("Category", Category)
-# 	print("Count of Category month wise ", count)
-
-
-# 	# Visulizing Data using Matplotlib
-# 	plt.bar(Category, count)
-# 	plt.ylim(0, 30)
-# 	plt.xticks(rotation=45)
-# 	plt.xlabel("Category")
-# 	plt.ylabel("Count by month")
-# 	plt.title("Issues raised Category wise")
-# 	# plt.show()
-# 	script_dir = os.path.dirname(__file__)
-# 	results_dir = os.path.join(script_dir, 'static/')
-# 	sample_file_name = "Current_Category"
-
-# 	if not os.path.isdir(results_dir):
-# 		os.makedirs(results_dir)
-
-# 	# plt.plot([1,2,3,4])
-# 	# plt.ylabel('some numbers')
-# 	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
-# 	# plt.savefig('my_plot.png')
-# 	plt.close()
-# 	return
 def Categorycurrentcount():
 	mycursor.execute("SELECT Category, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 0 MONTH) GROUP BY (Category) ")
 	result = mycursor.fetchall

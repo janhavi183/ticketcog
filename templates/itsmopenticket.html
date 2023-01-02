@@ -45,42 +45,8 @@
 				<div class="flex space-x-2 align-middle ">
 
 				</div>
-				<!-- <div class="dropdown dropdown-end ml-3">
-					<label tabindex="0" class="btn btn-ghost btn-circle">
-						<div class="avatar">
-							<div class="ml-3 w-8 rounded-full">
-								<img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" />
-							</div>
-						</div>
-					</label>
-					<ul tabindex="0"
-						class="menu menu-compact dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-52">
-						<li><a href="{{url_for('display')}}">Profile</a></li>
-						<li><a href="{{url_for('logout')}}">Logout</a></li>
-					</ul>
-				</div> -->
 			</div>
 		</div>
-
-		<!-- <div class="spacing mr-7 ml-7 mt-7 mb-5">
-			<div class="info bg-violet-700 p-5 rounded-md">
-				<h2 class="text-xl text-white font-semibold">
-					Open Ticket
-				</h2>
-				<h3 class="text-lg text-white font-regular">
-					Here is all ticket Details
-				</h3>
-			</div>
-		</div> -->
-		<!-- <div class="spacing mr-7 ml-7 mt-7 mb-5">
-			<div class="info bg-violet-700 p-5 rounded-md">
-				<h2 class="text-xl text-white font-semibold">
-					Ticket Details
-				</h2>
-				 <h3 class="text-lg text-white font-regular">
-					Here is all ticket Details
-				</h3> -->
-			<!-- </div> -->
 		</div>
 		<div class=" mr-7 ml-7  mb-2 text-sm font-medium breadcrumbs">
 			<ul>
@@ -115,16 +81,6 @@
 											class="input input-bordered w-full max-w-xs" disabled />
 										<input type="hidden" name="ticketid" value="{{account['ticketid']}}">
 									</div>
-
-								<!-- <div class="form-control w-full max-w-xs">
-									<label class="label">
-										<span class="label-text font-medium">Ticket ID</span>
-									</label>
-									<label>{{ account['ticketid'] }}</label> -->
-									<!-- <input type="text" value="{{ account['ticketid'] }}"
-										class="input input-bordered w-full max-w-xs"  />
-									<input type="hidden" name="ticketid" value={{ticketid}} />
-								</div> -->
 								<div class="form-control w-full lg:w-1/2 max-w-xs">
 									<label class="label">
 										<span class="label-text font-medium">User email:</span>
@@ -153,16 +109,6 @@
 											value="{{ account['description'] }}" readonly></input>
 									</div>
 								</div>
-								
-
-								<!-- <div class="form-control w-full max-w-xs">
-									<label class="label">
-										<span class="label-text font-medium">User email:</span>
-									</label>
-									<input type="hidden" name="email" value="{{ account['email'] }}"
-										class="input input-bordered w-full max-w-xs" /><label>{{ account["email"]}}</label>
-								</div> -->
-
 								<div class="lg:flex lg:space-x-4">
 									<div class="form-control w-full lg:w-1/2 max-w-xs">
 										<label class="label">
