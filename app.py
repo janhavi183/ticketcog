@@ -209,34 +209,36 @@ def smeKedbAdd():
             mysql.connection.commit()
             print("insert resolution")
             Resolution = request.form['Resolution']
-            print('description',description ,'Category',Category)         
-            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute("INSERT INTO kedb (description, Category, application_name, Resolution) VALUES (%s,%s,%s,%s)", (description ,Category ,application_name ,Resolution))
-            # cursor.execute("INSERT INTO kedb (description , Category , application_name ,Resolution) VALUES (% s, % s, % s, %s)" ,(description, Category, application_name, Resolution))
-            mysql.connection.commit()
-            msg = 'You have successfully registered !'
-        # elif request.method == 'POST':
+            print('description',description ,'Category',Category)      
+            if status_idup == '4':   
+                cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor.execute("INSERT INTO kedb (description, Category, application_name, Resolution) VALUES (%s,%s,%s,%s)", (description ,Category ,application_name ,Resolution))
+                # cursor.execute("INSERT INTO kedb (description , Category , application_name ,Resolution) VALUES (% s, % s, % s, %s)" ,(description, Category, application_name, Resolution))
+                mysql.connection.commit()
+                msg = 'You have successfully registered !'
+            # elif request.method == 'POST':
 
-            msg = 'Please fill out the form !'
-            mydb = sql_db .connect(host='127.0.0.1', database='ticketcog', user ='root', password ='root',auth_plugin='mysql_native_password') 
-            mycursor = mydb.cursor() 
-            mycursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            mycursor.execute("""SELECT kdbid , description , Category , application_name , Resolution FROM kedb""") 
-            df = pd.DataFrame(mycursor.fetchall(), columns = ["kdbid", "description", "Category", "application_name","Resolution"]) 
-            df.to_csv("kedb.csv", index=False) 
-            ser = smtplib.SMTP('smtp.gmail.com',587);
-            ser.starttls();
-            ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
-            email_body = """<pre> 
-            Congratulations! We've successfully resolved your error.
-                Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
-                Thanks,
-                SME Team,TicketCOG.
-                </pre>"""
+                msg = 'Please fill out the form !'
+                mydb = sql_db .connect(host='127.0.0.1', database='ticketcog', user ='root', password ='root',auth_plugin='mysql_native_password') 
+                mycursor = mydb.cursor() 
+                mycursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                mycursor.execute("""SELECT kdbid , description , Category , application_name , Resolution FROM kedb""") 
+                df = pd.DataFrame(mycursor.fetchall(), columns = ["kdbid", "description", "Category", "application_name","Resolution"]) 
+                df.to_csv("kedb.csv", index=False) 
+            
+                ser = smtplib.SMTP('smtp.gmail.com',587);
+                ser.starttls();
+                ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
+                email_body = """<pre> 
+                Congratulations! We've successfully resolved your error.
+                    Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
+                    Thanks,
+                    SME Team,TicketCOG.
+                    </pre>"""
 
-            msg = MIMEText(email_body ,'html')
-            ser.sendmail('janhaviparab06@gmail.com', email, msg.as_string());
-            print('mail sent');
+                msg = MIMEText(email_body ,'html')
+                ser.sendmail('janhaviparab06@gmail.com', email, msg.as_string());
+                print('mail sent');
            
         return redirect(url_for('smetablepage'))
     if 'loggedin' in session:
@@ -368,19 +370,20 @@ def itsmopenticket():
             cursor.execute("UPDATE ticket SET status_idup = %s ,priority_idup = %s ,resolution_notes_ITSM = %s ,resolved_date =%s ,resolved_by=%s WHERE ticketid = %s", (status_idup,priority_idup,resolution_notes_ITSM,resolved_date,resolved_by, ticketid))
             mysql.connection.commit()
             print("insert resolution")
-            ser = smtplib.SMTP('smtp.gmail.com',587);
-            ser.starttls();
-            ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
-            email_body = """<pre> 
-            Congratulations! We've successfully resolved your error.
-                Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
-                Thanks,
-                ITSM Team,TicketCOG .
-                </pre>"""
+            if status_idup == '4':
+                ser = smtplib.SMTP('smtp.gmail.com',587);
+                ser.starttls();
+                ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
+                email_body = """<pre> 
+                Congratulations! We've successfully resolved your error.
+                    Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
+                    Thanks,
+                    ITSM Team,TicketCOG .
+                    </pre>"""
 
-            msg = MIMEText(email_body ,'html')
-            ser.sendmail('janhaviparab06@gmail.com', email, msg.as_string());
-            print('mail sent');
+                msg = MIMEText(email_body ,'html')
+                ser.sendmail('janhaviparab06@gmail.com', email, msg.as_string());
+                print('mail sent');
         return redirect(url_for('tablepageitsm')) 
         
             
