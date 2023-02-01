@@ -15,7 +15,7 @@ from matplotlib.figure import Figure
 import os
 def ticket_plot():
     # plt.switch_backend('agg')
-    data = pd.read_csv("ticketpredictdata3.csv")
+    data = pd.read_csv("ticketpredictdata3feb.csv")
     incfrq = data.loc[:,['ticketid','created_at']]
     for i in range(len(incfrq.created_at)):
         if (incfrq.created_at[i][1]=='/'):
@@ -85,7 +85,7 @@ def ticket_plot():
     results = mod.fit()
     # print(results.summary().tables[1])
     # Predicting the future values and the confidence interval
-    pred = results.get_prediction(start=pd.to_datetime('2022-12-16'),end=pd.to_datetime('2022-12-30'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-02-01'),end=pd.to_datetime('2023-02-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
     ax = data2['2022':].plot(label='observed')

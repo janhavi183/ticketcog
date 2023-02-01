@@ -94,3 +94,5 @@ kdbid,description,Category,application_name,Resolution
 170,"Excel hangs or freezes when you launch it, or open an Excel workbook",Crash,Excel,Code changes done . 
 171,"Excel hangs or freezes when you launch it, or open an Excel workbook",Crash,Excel,Update excel
 172,Erp login not working,Login,ERP,Erp server restarted
+173,Not able to generate powerbi report,Report,PowerBi,Go to file tab and select generate report . Enable report in pdf
+174,Not able to generate powerbi report,Report,PowerBi,Go to remote update and update powerbi report module.

@@ -22,6 +22,7 @@ import pandas as pd
 import graph
 from flask_paginate import Pagination, get_page_parameter
 import Mannu
+# import forecast_low
 import graph1
 app = Flask(__name__)
 
@@ -590,6 +591,8 @@ def admindashboard():
             graph1.applicationcurrentcount()
             # applicationcountoctober()
             graph1.applicationcount3monthsbefore()
+            graph1.applicationcount4monthsbefore()
+            graph1.applicationcount5monthsbefore()
             # categorycurrentcount()
             graph1.applicationcount2monthbefore()
             graph1.applicationPowerpointmonths()
@@ -618,6 +621,8 @@ def admindashboard():
             graph1.Categorycurrentcount()
             graph1.Categorycountoctober()
             graph1.Categorycount3monthsbefore()
+            graph1.Categorycount4monthsbefore()
+            graph1.Categorycount5monthsbefore()
             # categorycurrentcount()
             graph1.Categorycount2monthbefore()
             graph1.CategoryLoginmonths()
@@ -645,6 +650,8 @@ def admindashboard():
             graph1.prioritycurrentcount()
             # prioritycountoctober()
             graph1.prioritycount3monthsbefore()
+            graph1.prioritycount4monthsbefore()
+            graph1.prioritycount5monthsbefore()
             # categorycurrentcount()
             graph1.prioritycount2monthbefore()
             graph1.priorityHighmonths()
@@ -660,8 +667,13 @@ def admindashboard():
 def priorgraph():
     if 'loggedin' in session:
         if session['role_id'] == 4:
+            Mannu.datalow_priority()
+            Mannu.datamed_priority()
+            Mannu.datahigh_priority()
+            Mannu.datasevere_priority()
             # incidentcount.ticket_plot()
-            Mannu.priorityfunction()
+            # Mannu.priorityfunction()
+
             return render_template('priorgraph.html')
         else:
             return render_template('error.html')

@@ -169,7 +169,77 @@ def applicationcount3monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "3monthbeforeapplication"
+	sample_file_name = "3monthbefore_application"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def applicationcount4monthsbefore():
+	mycursor.execute("SELECT application_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 4 MONTH) GROUP BY (application_name) ")
+	result = mycursor.fetchall
+	Application = []
+	count = []
+
+	for i in mycursor:
+		Application.append(i[0])
+		count.append(i[1])
+		
+	print("Application", Application)
+	print("Count of Application month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Application, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=90)
+	plt.xlabel("Application")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Application wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "4monthbefore_application"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def applicationcount5monthsbefore():
+	mycursor.execute("SELECT application_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 5 MONTH) GROUP BY (application_name) ")
+	result = mycursor.fetchall
+	Application = []
+	count = []
+
+	for i in mycursor:
+		Application.append(i[0])
+		count.append(i[1])
+		
+	print("Application", Application)
+	print("Count of Application month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Application, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=90)
+	plt.xlabel("Application")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Application wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "5monthbeforeapplication"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
@@ -1045,7 +1115,77 @@ def Categorycount3monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "3monthbeforeCategory"
+	sample_file_name = "3monthbefore_Category"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def Categorycount4monthsbefore():
+	mycursor.execute("SELECT Category, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 4 MONTH) GROUP BY (Category) ")
+	result = mycursor.fetchall
+	Category = []
+	count = []
+
+	for i in mycursor:
+		Category.append(i[0])
+		count.append(i[1])
+		
+	print("Category", Category)
+	print("Count of Category month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Category, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=45)
+	plt.xlabel("Category")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Category wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "4monthbeforeCategory"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def Categorycount5monthsbefore():
+	mycursor.execute("SELECT Category, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 5 MONTH) GROUP BY (Category) ")
+	result = mycursor.fetchall
+	Category = []
+	count = []
+
+	for i in mycursor:
+		Category.append(i[0])
+		count.append(i[1])
+		
+	print("Category", Category)
+	print("Count of Category month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Category, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=45)
+	plt.xlabel("Category")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Category wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "5monthbeforeCategory"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
@@ -1747,7 +1887,77 @@ def prioritycount3monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "3monthbeforepriority"
+	sample_file_name = "3monthbefore_priority"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def prioritycount4monthsbefore():
+	mycursor.execute("SELECT priority_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' from ticket t1 LEFT JOIN priority_table  t2  ON t2.priority_id = t1.priority_idup WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 4 MONTH) GROUP BY (priority_name) ")
+	result = mycursor.fetchall
+	Priority = []
+	count = []
+
+	for i in mycursor:
+		Priority.append(i[0])
+		count.append(i[1])
+		
+	print("Priority", Priority)
+	print("Count of Priority month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Priority, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=0)
+	plt.xlabel("Priority")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Priority wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "4monthbefore_priority"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def prioritycount5monthsbefore():
+	mycursor.execute("SELECT priority_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' from ticket t1 LEFT JOIN priority_table  t2  ON t2.priority_id = t1.priority_idup WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 5 MONTH) GROUP BY (priority_name) ")
+	result = mycursor.fetchall
+	Priority = []
+	count = []
+
+	for i in mycursor:
+		Priority.append(i[0])
+		count.append(i[1])
+		
+	print("Priority", Priority)
+	print("Count of Priority month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Priority, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=0)
+	plt.xlabel("Priority")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Priority wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "5monthbefore_priority"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
