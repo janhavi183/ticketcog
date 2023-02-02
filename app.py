@@ -166,11 +166,11 @@ def createticket():
             Category = request.form['Category']
             status_idup = 1
             application_name = request.form['application_name']
-            if application_name == 'Outlook' or application_name == 'SAP' or application_name == 'Hr_tool':
+            if application_name == 'Outlook' or application_name == 'SAP' or application_name == 'Hr_tool' or application_name == 'Colaboration':
                 assigned_to = 'raghav_it'
-            elif application_name =='Skype' or application_name == 'VPN' or application_name == 'PowerBi':
+            elif application_name =='Skype' or application_name == 'VPN' or application_name == 'PowerBi' or application_name == 'Engineering_tool' or application_name == 'Other':
                 assigned_to = 'arjun'
-            elif application_name == 'Hardware' or application_name == 'ERP' or application_name == 'Access':
+            elif application_name == 'Hardware' or application_name == 'ERP' or application_name == 'Access' or application_name == 'Ess' or application_name == 'Windows':
                 assigned_to = 'shubhangi'
             else:
                 assigned_to == 'None'

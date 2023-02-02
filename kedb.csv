@@ -96,3 +96,5 @@ kdbid,description,Category,application_name,Resolution
 172,Erp login not working,Login,ERP,Erp server restarted
 173,Not able to generate powerbi report,Report,PowerBi,Go to file tab and select generate report . Enable report in pdf
 174,Not able to generate powerbi report,Report,PowerBi,Go to remote update and update powerbi report module.
+175,Unable to access colaboration tool,Access,Colaboration,Go to admin settings tab -> Go to Collaboration tool -> Set access for that user
+176,Ticket application not loading,Page_not_loading,Other,Updated Ticket application
