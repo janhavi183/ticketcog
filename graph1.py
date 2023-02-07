@@ -239,7 +239,7 @@ def applicationcount5monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "5monthbeforeapplication"
+	sample_file_name = "5monthbefore_application"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
@@ -305,7 +305,7 @@ def applicationpreviousweek():
 	plt.xticks(rotation=90)
 	plt.xlabel("Application")
 	plt.ylabel("Count by month")
-	plt.title("Issues raised Application wise for previos week")
+	plt.title("Issues raised Application wise for previous week")
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
@@ -336,7 +336,7 @@ def applicationlast3months():
 
 	# Visulizing Data using Matplotlib
 	plt.bar(Application, count)
-	plt.ylim(0, 10)
+	plt.ylim(0, 30)
 	plt.xticks(rotation=90)
 	plt.xlabel("Application")
 	plt.ylabel("Count by month")
@@ -371,7 +371,7 @@ def applicationlast6months():
 
 	# Visulizing Data using Matplotlib
 	plt.bar(Application, count)
-	plt.ylim(0, 10)
+	plt.ylim(0, 30)
 	plt.xticks(rotation=90)
 	plt.xlabel("Application")
 	plt.ylabel("Count by month")
@@ -406,7 +406,7 @@ def applicationlast2months():
 
 	# Visulizing Data using Matplotlib
 	plt.bar(Application, count)
-	plt.ylim(0, 10)
+	plt.ylim(0, 30)
 	plt.xticks(rotation=90)
 	plt.xlabel("Application")
 	plt.ylabel("Count by month")
@@ -441,7 +441,7 @@ def applicationlast12months():
 
 	# Visulizing Data using Matplotlib
 	plt.bar(Application, count)
-	plt.ylim(0, 10)
+	plt.ylim(0, 30)
 	plt.xticks(rotation=90)
 	plt.xlabel("Application")
 	plt.ylabel("Count by month")
@@ -1185,7 +1185,7 @@ def Categorycount5monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "5monthbeforeCategory"
+	sample_file_name = "5monthbefore_Category"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
