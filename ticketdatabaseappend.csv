@@ -19,7 +19,7 @@ ticketid,subject,status_idup,priority_idup,created_at,Category,application_name
 65,Sap password reset,1,3,2022-11-22 20:00:52,Login,SAP
 66,Windows account locked,1,3,2022-11-23 16:35:10,Login,Windows
 67,sap crashing,1,4,2022-11-23 16:36:48,Crash,SAP
-68,windows updated some features not working,2,1,2022-11-28 16:23:53,Configuration,Windows
+68,windows updated some features not working,4,1,2022-11-28 16:23:53,Configuration,Windows
 69,Laptop battery,1,1,2022-12-03 17:44:27,Hardware,Hardware
 70,erp crash,4,2,2022-12-07 01:32:10,Crash,ERP
 71,outlook crashing,3,2,2022-12-07 22:24:26,Crash,Outlook
@@ -46,5 +46,8 @@ ticketid,subject,status_idup,priority_idup,created_at,Category,application_name
 92,PowerBi login not working,4,2,2023-02-02 22:15:38,Login,PowerBi
 93,SAP page not loading ,3,2,2023-02-05 16:32:48,Page_not_loading,SAP
 94,Access not loading,3,2,2023-02-05 17:10:57,Page_not_loading,Access
-95,outlook configuration not working,1,3,2023-02-06 13:38:02,Configuration,Outlook
-96,Network is not proper,1,4,2023-02-06 13:39:29,Hardware,VPN
+95,outlook configuration not working,1,1,2023-02-06 13:38:02,Configuration,Outlook
+96,Network is not proper,4,1,2023-02-06 13:39:29,Hardware,VPN
+97,skype crashing,3,4,2023-02-14 21:25:02,Crash,Skype
+98,Skype crashing on login,4,4,2023-02-20 10:56:35,Crash,Skype
+99,Hr_tool not responding,1,2,2023-03-04 10:27:38,Page_not_loading,Hr_tool

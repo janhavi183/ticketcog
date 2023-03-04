@@ -11,7 +11,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import os
 from matplotlib.figure import Figure
 # df_low=data.loc[df['priority_id'] == 1]
-data = pd.read_csv("ticketpredictdata3feb.csv")
+data = pd.read_csv("ticketpredictdata3march.csv")
 df_low=data.loc[data['priority_idup'] == 1]
 df_low.to_csv("ticket_low.csv")
 data_low = pd.read_csv("ticket_low.csv")
@@ -111,7 +111,7 @@ def datalow_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-02-01'),end=pd.to_datetime('2023-02-15'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -212,7 +212,7 @@ def datamed_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(2,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-02-01'),end=pd.to_datetime('2023-02-15'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -313,7 +313,7 @@ def datahigh_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-02-01'),end=pd.to_datetime('2023-02-15'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -414,7 +414,7 @@ def datasevere_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,2,2))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-02-01'),end=pd.to_datetime('2023-02-15'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 

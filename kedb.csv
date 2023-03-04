@@ -102,3 +102,6 @@ kdbid,description,Category,application_name,Resolution
 178,Access page not loading,Page_not_loading,Access,Reinstall Access 
 179,Unable to login in PowerBi,Login,PowerBi,Go to admin settings and allow specific user
 180,Network is not proper,Hardware,VPN,Server restarted
+181,Windows update done and now some features are not working,Configuration,Windows,Windows reinstalled properly
+182,PowerBi login not working,Login,PowerBi,Server changes done powerbi updated
+183,Hr_tool not responding,Page_not_loading,Hr_tool,Restart the hr_tool server after updating it in users system

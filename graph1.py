@@ -706,7 +706,7 @@ def applicationERPmonths():
 	plt.close()
 	return
 def applicationHRmonths():
-	mycursor.execute("SELECT COUNT(ticketid) as Count,MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE application_name = 'HR' GROUP BY MONTH(created_at)")
+	mycursor.execute("SELECT COUNT(ticketid) as Count,MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE application_name = 'Hr_tool' GROUP BY MONTH(created_at)")
 	result = mycursor.fetchall 
 	Application = []
 	count = []
