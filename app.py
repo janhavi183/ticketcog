@@ -15,6 +15,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import warnings
 warnings.filterwarnings('ignore')
 import nltk
+# nltk.download()
 from nltk.stem import WordNetLemmatizer
 import incidentcount
 # import forecast_low
@@ -229,7 +230,7 @@ def smeKedbAdd():
             
                 ser = smtplib.SMTP('smtp.gmail.com',587);
                 ser.starttls();
-                ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
+                ser.login('janhaviparab06@gmail.com','vikpbkunqhgpbzef')
                 email_body = """<pre> 
                 Congratulations! We've successfully resolved your error.
                     Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
@@ -374,7 +375,7 @@ def itsmopenticket():
             if status_idup == '4':
                 ser = smtplib.SMTP('smtp.gmail.com',587);
                 ser.starttls();
-                ser.login('janhaviparab06@gmail.com','ollmorbcujroxgen')
+                ser.login('janhaviparab06@gmail.com','vikpbkunqhgpbzef')
                 email_body = """<pre> 
                 Congratulations! We've successfully resolved your error.
                     Was your issue resolved: <a href="http://localhost:5000/ticketstatus">Feedback</a>
@@ -593,6 +594,7 @@ def admindashboard():
             graph1.applicationcount3monthsbefore()
             graph1.applicationcount4monthsbefore()
             graph1.applicationcount5monthsbefore()
+            graph1.applicationcount6monthsbefore()
             # categorycurrentcount()
             graph1.applicationcount2monthbefore()
             graph1.applicationPowerpointmonths()
@@ -623,6 +625,7 @@ def admindashboard():
             graph1.Categorycount3monthsbefore()
             graph1.Categorycount4monthsbefore()
             graph1.Categorycount5monthsbefore()
+            graph1.Categorycount6monthsbefore()
             # categorycurrentcount()
             graph1.Categorycount2monthbefore()
             graph1.CategoryLoginmonths()
@@ -652,6 +655,7 @@ def admindashboard():
             graph1.prioritycount3monthsbefore()
             graph1.prioritycount4monthsbefore()
             graph1.prioritycount5monthsbefore()
+            graph1.prioritycount6monthsbefore()
             # categorycurrentcount()
             graph1.prioritycount2monthbefore()
             graph1.priorityHighmonths()

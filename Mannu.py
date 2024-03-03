@@ -2,6 +2,8 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import datetime as dt
 import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -10,8 +12,13 @@ import statsmodels.api as sm
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import os
 from matplotlib.figure import Figure
+# import tkinter as tk
+# from mttkinter import mtTkinter as tk
 # df_low=data.loc[df['priority_id'] == 1]
-data = pd.read_csv("ticketpredictdata3march.csv")
+# plt.switch_backend('agg')
+# file_path = "ticketpredictdata3april.csv"
+# data = pd.read_csv(file_path)
+data = pd.read_csv("ticketpredictdata3april.csv")
 df_low=data.loc[data['priority_idup'] == 1]
 df_low.to_csv("ticket_low.csv")
 data_low = pd.read_csv("ticket_low.csv")
@@ -111,7 +118,7 @@ def datalow_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-04-01'),end=pd.to_datetime('2023-04-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -212,7 +219,7 @@ def datamed_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(2,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-04-01'),end=pd.to_datetime('2023-04-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -313,7 +320,7 @@ def datahigh_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,1,1))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-04-01'),end=pd.to_datetime('2023-04-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 
@@ -414,7 +421,7 @@ def datasevere_priority():
     mod = sm.tsa.statespace.SARIMAX(data2,order=(1,2,2))
     results = mod.fit()
 
-    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-04-01'),end=pd.to_datetime('2023-04-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
 

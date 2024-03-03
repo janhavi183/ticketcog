@@ -250,6 +250,41 @@ def applicationcount5monthsbefore():
 	# plt.savefig('my_plot.png')
 	plt.close()
 	return
+def applicationcount6monthsbefore():
+	mycursor.execute("SELECT application_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 6 MONTH) GROUP BY (application_name) ")
+	result = mycursor.fetchall
+	Application = []
+	count = []
+
+	for i in mycursor:
+		Application.append(i[0])
+		count.append(i[1])
+		
+	print("Application", Application)
+	print("Count of Application month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Application, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=90)
+	plt.xlabel("Application")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Application wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "6monthbefore_application"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
 def applicationcurrentweek():
 	mycursor.execute("SELECT application_name,COUNT(ticketid) as Count, created_at FROM ticket WHERE YEARWEEK(`created_at`, 1) = YEARWEEK( CURDATE() - INTERVAL 0 WEEK) group by application_name")
 	result = mycursor.fetchall
@@ -1150,7 +1185,7 @@ def Categorycount4monthsbefore():
 	# plt.show()
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
-	sample_file_name = "4monthbeforeCategory"
+	sample_file_name = "4monthbefore_Category"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
@@ -1186,6 +1221,41 @@ def Categorycount5monthsbefore():
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
 	sample_file_name = "5monthbefore_Category"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def Categorycount6monthsbefore():
+	mycursor.execute("SELECT Category, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' FROM ticket WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 6 MONTH) GROUP BY (Category) ")
+	result = mycursor.fetchall
+	Category = []
+	count = []
+
+	for i in mycursor:
+		Category.append(i[0])
+		count.append(i[1])
+		
+	print("Category", Category)
+	print("Count of Category month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Category, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=45)
+	plt.xlabel("Category")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Category wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "6monthbefore_Category"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)
@@ -1958,6 +2028,41 @@ def prioritycount5monthsbefore():
 	script_dir = os.path.dirname(__file__)
 	results_dir = os.path.join(script_dir, 'static/')
 	sample_file_name = "5monthbefore_priority"
+
+	if not os.path.isdir(results_dir):
+		os.makedirs(results_dir)
+
+	# plt.plot([1,2,3,4])
+	# plt.ylabel('some numbers')
+	plt.savefig(results_dir + sample_file_name ,dpi=(250), bbox_inches='tight')
+	# plt.savefig('my_plot.png')
+	plt.close()
+	return
+def prioritycount6monthsbefore():
+	mycursor.execute("SELECT priority_name, COUNT(ticketid) as Count, MONTHNAME(created_at) as 'Month Name' from ticket t1 LEFT JOIN priority_table  t2  ON t2.priority_id = t1.priority_idup WHERE MONTH(created_at) = MONTH(CURDATE() - INTERVAL 6 MONTH) GROUP BY (priority_name) ")
+	result = mycursor.fetchall
+	Priority = []
+	count = []
+
+	for i in mycursor:
+		Priority.append(i[0])
+		count.append(i[1])
+		
+	print("Priority", Priority)
+	print("Count of Priority month wise ", count)
+
+
+	# Visulizing Data using Matplotlib
+	plt.bar(Priority, count)
+	plt.ylim(0, 30)
+	plt.xticks(rotation=0)
+	plt.xlabel("Priority")
+	plt.ylabel("Count by month")
+	plt.title("Issues raised Priority wise")
+	# plt.show()
+	script_dir = os.path.dirname(__file__)
+	results_dir = os.path.join(script_dir, 'static/')
+	sample_file_name = "6monthbefore_priority"
 
 	if not os.path.isdir(results_dir):
 		os.makedirs(results_dir)

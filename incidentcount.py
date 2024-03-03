@@ -2,6 +2,7 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import datetime as dt
 import matplotlib.pyplot as plt
+plt.switch_backend('agg')
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
@@ -9,13 +10,16 @@ import itertools
 import statsmodels.api as sm
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
+# import tkinter as tk
+# from mttkinter import mtTkinter as tk
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
 
 import os
 def ticket_plot():
-    # plt.switch_backend('agg')
-    data = pd.read_csv("ticketpredictdata3march.csv")
+    file_path = "ticketpredictdata3april.csv"
+    data = pd.read_csv(file_path)
+    # data = pd.read_csv("ticketpredictdata3april.csv")
     incfrq = data.loc[:,['ticketid','created_at']]
     for i in range(len(incfrq.created_at)):
         if (incfrq.created_at[i][1]=='/'):
@@ -85,7 +89,7 @@ def ticket_plot():
     results = mod.fit()
     # print(results.summary().tables[1])
     # Predicting the future values and the confidence interval
-    pred = results.get_prediction(start=pd.to_datetime('2023-03-10'),end=pd.to_datetime('2023-03-26'),dynamic=False)
+    pred = results.get_prediction(start=pd.to_datetime('2023-04-01'),end=pd.to_datetime('2023-04-10'),dynamic=False)
     pred_ci = pred.conf_int()
     pred.predicted_mean.round()
     ax = data2['2022':].plot(label='observed')
